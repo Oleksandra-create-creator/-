@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head><meta charset="UTF-8"><title>{{ book.title }}</title></head>
+<body>
+<h1>{{ book.title }}</h1>
+<p>Рік: {{ book.year }} | Категорія: {{ book.category.name }}</p>
+<p>Доступна: {{ book.available|yesno:"так,ні" }}</p>
+</body>
+</html>
