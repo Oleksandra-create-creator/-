@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head><meta charset="UTF-8"><title>Книги</title></head>
+<body>
+<h1>Книги бібліотеки ({{ books|length }})</h1>
+<ul>
+{% for book in books %}
+    <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a> — {{ book.category.name }}</li>
+{% empty %}
+    <li>Книг немає</li>
+{% endfor %}
+</ul>
+</body>
+</html>
