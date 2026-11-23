@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }} | Конференція{% endblock %}
+
+{% block content %}
+    <h1>Ласкаво просимо на {{ event_name }}!</h1>
+    <p>Кількість зареєстрованих учасників: {{ attendees_count }}</p>
+    
+    <h2>Наші спікери:</h2>
+    {% if speakers %}
+        <ul>
+            {% for speaker in speakers %}
+                <li>{{ speaker[:10] }}...</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Спікери ще не оголошені.</p>
+    {% endif %}
+    
+    <p>Загальна довжина списку спікерів: {{ speakers|length }}.</p>
+    <p>Перевірка методу рядка у Jinja2: {{ "python".upper() }}</p>
+{% endblock %}
