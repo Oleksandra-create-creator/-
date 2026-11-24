@@ -1,0 +1,18 @@
+import os
+
+class Config:
+    SECRET_KEY = 'default-secret-key'
+    DEBUG = False
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+
+class ProductionConfig(Config):
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret')
+    DEBUG = False
+
+config_by_name = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig,
+}
