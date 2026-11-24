@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head><meta charset="UTF-8"><title>Нова книга</title></head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <input name="title" required>
+    <input name="year" type="number" required>
+    <select name="category">
+        {% for c in categories %}<option value="{{ c.pk }}">{{ c.name }}</option>{% endfor %}
+    </select>
+    <button type="submit">Зберегти</button>
+</form>
+</body>
+</html>
